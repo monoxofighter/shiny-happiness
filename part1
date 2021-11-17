@@ -10,8 +10,6 @@
 sudo apt update 
 # Upgrade System
 sudo apt upgrade -y
-# Install X-ui
-bash <(curl -Ls https://raw.githubusercontent.com/vaxilu/x-ui/master/install.sh)
 # Install Firewalld
 sudo apt-get install firewalld -y
 # Open Ports
