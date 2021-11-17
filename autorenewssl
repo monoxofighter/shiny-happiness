@@ -1,0 +1,24 @@
+#!/bin/bash
+#====================================================
+# SCRIPT: ELH SERVER QUICK DEPLOY FOR X-UI
+# DEVELOPED BY: MONOXOFIGHTER
+# UPDATE DATE: 2021.11.06
+# THIS REPO SPECIALLY MADE FOR ELH.NETWOXCLOUD SERVERS.
+#====================================================
+
+# Locate Certbot-Auto Package
+wget https://dl.eff.org/certbot-auto && chmod a+x certbot-auto
+# Move Certbot-Auto Package
+sudo mv certbot-auto /etc/letsencrypt/
+# Edit Crontab File
+(crontab -l && echo "45 2 * * 6 cd /etc/letsencrypt/ && ./certbot-auto renew && x-ui start") | crontab -
+# Basic Auto-Renew Testing
+sudo -i
+cd /etc/letsencrypt/ && ./certbot-auto renew --dry-run && x-ui start
+# Force Crontab script
+
+# End
+echo "Auto Renew Done !"
+# Remove opcmake file
+rm -r autorenewssl
+

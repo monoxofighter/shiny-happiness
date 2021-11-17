@@ -1,0 +1,71 @@
+#!/bin/bash
+#====================================================
+# SCRIPT: ELH SERVER QUICK DEPLOY FOR X-UI
+# DEVELOPED BY: MONOXOFIGHTER
+# UPDATE DATE: 2021.11.06
+# THIS REPO SPECIALLY MADE FOR ELH.NETWOXCLOUD SERVERS.
+#====================================================
+
+# Get Root
+sudo su
+# Update System
+sudo apt update 
+# Upgrade System
+sudo apt upgrade -y
+# Install X-ui
+bash <(curl -Ls https://raw.githubusercontent.com/vaxilu/x-ui/master/install.sh)
+# Install Firewalld
+sudo apt-get install firewalld -y
+# Open Ports
+sudo firewall-cmd --zone=public --permanent --add-port=22/tcp #SSH
+sudo firewall-cmd --zone=public --permanent --add-port=54321/tcp # User 1
+sudo firewall-cmd --zone=public --permanent --add-port=54322/tcp # User 2
+sudo firewall-cmd --zone=public --permanent --add-port=54323/tcp # User 3
+sudo firewall-cmd --zone=public --permanent --add-port=54324/tcp # User 4
+sudo firewall-cmd --zone=public --permanent --add-port=54325/tcp # User 5
+sudo firewall-cmd --zone=public --permanent --add-port=54326/tcp # User 6
+sudo firewall-cmd --zone=public --permanent --add-port=54327/tcp # User 7
+sudo firewall-cmd --zone=public --permanent --add-port=54328/tcp # User 8
+sudo firewall-cmd --zone=public --permanent --add-port=54329/tcp # User 9
+sudo firewall-cmd --zone=public --permanent --add-port=54330/tcp # User 10
+sudo firewall-cmd --zone=public --permanent --add-port=80/tcp # HTTP
+sudo firewall-cmd --zone=public --permanent --add-port=443/tcp # HTTPs
+# Reload Firewalld
+sudo firewall-cmd --reload
+# Adding Cron Job for Start Firewalld
+(crontab -l && echo "@reboot systemctl start firewalld") | crontab -
+# Install Speedtest CLI
+sudo apt install speedtest-cli
+# Setup Time Zone
+sudo timedatectl set-timezone Asia/Colombo
+# Setup Automatic Reboot @ Every day 5 a.m.
+(crontab -l && echo "0 5 * * * /sbin/reboot") | crontab -
+# Remove Junk Files
+sudo apt autoremove -y
+# Automate Removing Junk Files 
+sudo sh -c 'echo "sudo apt autoremove -y" >> /etc/cron.monthly/autoremove'
+# Setup Monthly Junk Remover Job
+sudo chmod +x /etc/cron.monthly/autoremove
+# System Update to install webmin
+sudo apt update
+clear
+# Install SSL
+sudo apt update
+sudo apt install snapd
+# Test your system
+sudo snap install hello-world
+hello-world
+Sleep 10
+clear
+# Install lastes version of snapd
+sudo snap install core; sudo snap refresh core
+# Install Certbot
+sudo snap install --classic certbot
+# Prepare the Certbot command
+sudo ln -s /snap/bin/certbot /usr/bin/certbot
+# Install Bot
+sudo apt-get install certbot -y
+# End
+echo "Part 01 Done !"
+# Remove opcmake file
+rm -r part1

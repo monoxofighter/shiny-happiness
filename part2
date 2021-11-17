@@ -1,0 +1,19 @@
+#!/bin/bash
+#====================================================
+# SCRIPT: ELH SERVER QUICK DEPLOY FOR X-UI
+# DEVELOPED BY: MONOXOFIGHTER
+# UPDATE DATE: 2021.11.06
+# THIS REPO SPECIALLY MADE FOR ELH.NETWOXCLOUD SERVERS.
+#====================================================
+
+# automatic renewal certificates
+sudo certbot renew --dry-run
+# Remove unwanted Ports
+sudo firewall-cmd --remove-port=80/tcp
+sudo firewall-cmd --remove-port=443/tcp
+sudo firewall-cmd --runtime-to-permanent
+sudo firewall-cmd --reload
+# End
+echo "Part 02 Done !"
+# Remove opcmake file
+rm -r part2
