@@ -6,8 +6,6 @@
 # THIS REPO SPECIALLY MADE FOR ELH.NETWOXCLOUD SERVERS.
 #====================================================
 
-# Get Root
-sudo su
 # Update System
 sudo apt update 
 # Upgrade System
