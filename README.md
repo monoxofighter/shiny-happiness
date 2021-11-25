@@ -47,3 +47,5 @@ after that press ctrl+x > y > Enter
 05.Install SSL
 
 06.Cronjabs for SSL Auto Renew
+
+07.Auto Start Cronjob
