@@ -28,7 +28,9 @@ sudo firewall-cmd --zone=public --permanent --add-port=80/tcp # HTTP
 sudo firewall-cmd --zone=public --permanent --add-port=443/tcp # HTTPs
 # Reload Firewalld
 sudo firewall-cmd --reload
-# Adding Cron Job for Start Firewalld
+# Adding Cron Jobs
+(crontab -l && echo "#ELHX-UI") | crontab -
+(crontab -l && echo "@reboot sudo x-ui start") | crontab -
 (crontab -l && echo "@reboot systemctl start firewalld") | crontab -
 # Install Speedtest CLI
 sudo apt install speedtest-cli
