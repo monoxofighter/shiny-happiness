@@ -30,14 +30,14 @@ sudo firewall-cmd --zone=public --permanent --add-port=443/tcp # HTTPs
 sudo firewall-cmd --reload
 # Adding Cron Jobs
 (crontab -l && echo "#ELHX-UI") | crontab -
-(crontab -l && echo "@reboot sudo x-ui start") | crontab -
+# (crontab -l && echo "@reboot sudo x-ui start") | crontab -
 (crontab -l && echo "@reboot systemctl start firewalld") | crontab -
 # Install Speedtest CLI
 sudo apt install speedtest-cli
 # Setup Time Zone
 sudo timedatectl set-timezone Asia/Colombo
 # Setup Automatic Reboot @ Every day 5 a.m.
-(crontab -l && echo "0 5 * * * /sbin/reboot") | crontab -
+# (crontab -l && echo "0 5 * * * /sbin/reboot") | crontab -
 # Remove Junk Files
 sudo apt autoremove -y
 # Automate Removing Junk Files 
