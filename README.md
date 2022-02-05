@@ -14,6 +14,10 @@ sudo certbot certonly --standalone --preferred-challenges http --agree-tos --ema
 ```
 apt-get update -y; apt-get upgrade -y; sudo wget https://raw.githubusercontent.com/monoxofighter/shiny-happiness/master/part2; chmod 777 part2; ./part2
 ```
+# Setup Automatic Reboot @ Every day 5 a.m.
+```
+(crontab -l && echo "0 5 * * * /sbin/reboot") | crontab -
+```
 # Check current expiry date
 ```
 openssl x509 -noout -dates -in /etc/letsencrypt/live/yourdomain.com/cert.pem
