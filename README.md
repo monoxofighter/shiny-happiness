@@ -14,6 +14,10 @@ sudo certbot certonly --standalone --preferred-challenges http --agree-tos --ema
 ```
 apt-get update -y; apt-get upgrade -y; sudo wget https://raw.githubusercontent.com/monoxofighter/shiny-happiness/master/part2; chmod 777 part2; ./part2
 ```
+# Open All Ports 
+```
+firewall-cmd --zone=trusted --add-source=0.0.0.0/0 && sudo firewall-cmd --runtime-to-permanent && sudo firewall-cmd --reload
+```
 # Setup Automatic Reboot @ Every day 5 a.m.
 ```
 (crontab -l && echo "0 5 * * * /sbin/reboot") | crontab -
